@@ -3,7 +3,7 @@ import { Product } from "../types/product";
 const products: Product[] = [
   {
     _id: "1",
-    name: "Airpoods Wireless Bluetooth Headphones",
+    name: "Airpods Wireless Bluetooth Headphones",
     image: "/images/airpods.jpg",
     description:
       "Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working",
@@ -17,7 +17,7 @@ const products: Product[] = [
   },
   {
     _id: "2",
-    name: "Airpoods Wireless Bluetooth Headphones",
+    name: "Macbook pro M1",
     image: "/images/airpods.jpg",
     description:
       "Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working",
@@ -31,7 +31,7 @@ const products: Product[] = [
   },
   {
     _id: "3",
-    name: "Airpoods Wireless Bluetooth Headphones",
+    name: "Macbook Air M1",
     image: "/images/airpods.jpg",
     description:
       "Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working",
@@ -45,7 +45,7 @@ const products: Product[] = [
   },
   {
     _id: "4",
-    name: "Airpoods Wireless Bluetooth Headphones",
+    name: "Macbook M1 Pro",
     image: "/images/airpods.jpg",
     description:
       "Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working",
@@ -59,7 +59,7 @@ const products: Product[] = [
   },
   {
     _id: "5",
-    name: "Airpoods Wireless Bluetooth Headphones",
+    name: "Macbook Pro M1 Pro Max",
     image: "/images/airpods.jpg",
     description:
       "Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working",
@@ -73,7 +73,7 @@ const products: Product[] = [
   },
   {
     _id: "6",
-    name: "Airpoods Wireless Bluetooth Headphones",
+    name: "Macbook Air M2",
     image: "/images/airpods.jpg",
     description:
       "Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working",
