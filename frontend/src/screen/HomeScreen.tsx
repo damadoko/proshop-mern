@@ -1,10 +1,9 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
-import { Product } from "../components/Product";
+import { ProductCard } from "../components/ProductCard";
 import products from "../mock/products";
 
-export const HomeScreen = () => {
-  console.log({ products });
+export const HomeScreen: React.FC = () => {
   return (
     <>
       <h1>Lasted Products</h1>
@@ -12,7 +11,7 @@ export const HomeScreen = () => {
         {products.map((product) => {
           return (
             <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
-              <Product product={product} />
+              <ProductCard product={product} />
             </Col>
           );
         })}

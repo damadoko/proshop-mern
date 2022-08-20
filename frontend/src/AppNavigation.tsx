@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 
 import { HomeScreen, ProductScreen } from "./screen";
 
-export const AppNavigation = () => {
+export const AppNavigation: React.FC = () => {
   return (
     <Routes>
       <Route path="/" element={<HomeScreen />} />

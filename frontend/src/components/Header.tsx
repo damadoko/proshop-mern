@@ -2,7 +2,7 @@ import React from "react";
 import { LinkContainer } from "react-router-bootstrap";
 import { Container, Navbar, Nav } from "react-bootstrap";
 
-export const Header = () => {
+export const Header: React.FC = () => {
   return (
     <header>
       <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>

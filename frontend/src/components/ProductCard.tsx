@@ -2,8 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Card } from "react-bootstrap";
 import { Rating } from "./Rating";
+import { Product } from "../types/product";
 
-export const Product = ({ product }) => {
+type ProductProps = {
+  product: Product;
+};
+
+export const ProductCard: React.FC<ProductProps> = ({ product }) => {
   return (
     <Card className="my-3 p-3 rounded">
       <Link to={`/product/${product._id}`}>
