@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
+import Axios from "axios";
+
+import { Product } from "types/product";
 import { ProductCard } from "../components/ProductCard";
-import products from "../mock/products";
 
 export const HomeScreen: React.FC = () => {
+  const [products, setProducts] = useState<Product[]>([]);
+
+  const getProducts = async () => {
+    const { data } = await Axios.get("/products");
+    setProducts(data);
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
   return (
     <>
       <h1>Lasted Products</h1>
