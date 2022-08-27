@@ -1,13 +1,27 @@
-import React from "react";
-import { find } from "lodash/fp";
+import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import Axios from "axios";
 import { Row, Col, Image, ListGroup, Card, Button } from "react-bootstrap";
-import products from "../mock/products";
+
+import { Product } from "types/product";
 import { Rating } from "components/Rating";
 
 export const ProductScreen: React.FC = () => {
-  const { id: _id } = useParams();
-  const product = find({ _id }, products);
+  const { id } = useParams();
+
+  const [product, setProduct] = useState<Product | null>(null);
+
+  const getProductById = async (id: string) => {
+    const { data } = await Axios.get(`/products/${id}`);
+    setProduct(data);
+  };
+
+  useEffect(() => {
+    if (!id) return;
+    getProductById(id);
+  }, [id]);
+
+  // const product = find<Product>(propEq("_id", id))(products);
 
   return (
     <>
