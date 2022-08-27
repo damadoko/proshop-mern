@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import Axios from "axios";
+import axios from "axios";
 import { Row, Col, Image, ListGroup, Card, Button } from "react-bootstrap";
 
 import { Product } from "types/product";
@@ -12,7 +12,7 @@ export const ProductScreen: React.FC = () => {
   const [product, setProduct] = useState<Product | null>(null);
 
   const getProductById = async (id: string) => {
-    const { data } = await Axios.get(`/products/${id}`);
+    const { data } = await axios.get(`/products/${id}`);
     setProduct(data);
   };
 

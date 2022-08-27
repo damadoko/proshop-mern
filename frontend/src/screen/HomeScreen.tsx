@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
-import Axios from "axios";
+import axios from "axios";
 
 import { Product } from "types/product";
 import { ProductCard } from "../components/ProductCard";
@@ -9,7 +9,7 @@ export const HomeScreen: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
 
   const getProducts = async () => {
-    const { data } = await Axios.get("/products");
+    const { data } = await axios.get("/products");
     setProducts(data);
   };
 
