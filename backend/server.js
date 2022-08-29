@@ -1,8 +1,10 @@
-const express = require("express");
-const { find, propEq, isNil } = require("ramda");
-const mockedProducts = require("./data/products");
+import express from "express";
+import dotenv from "dotenv";
+import { find, propEq, isNil } from "ramda";
 
-const PORT = 4300;
+import mockedProducts from "./data/products.js";
+
+dotenv.config();
 
 const app = express();
 
@@ -26,6 +28,7 @@ app.get("/products/:id", ({ params }, res) => {
   }
 });
 
+const PORT = process.env.PORT || 4200;
 app.listen(PORT, () => {
-  console.log(`Listen on port ${PORT}`);
+  console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
 });
