@@ -1,6 +1,5 @@
 const products = [
   {
-    _id: "1",
     name: "Airpods Wireless Bluetooth Headphones",
     image: "/images/airpods.jpg",
     description:
@@ -14,7 +13,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: "2",
     name: "Macbook pro M1",
     image: "/images/airpods.jpg",
     description:
@@ -28,7 +26,6 @@ const products = [
     numReviews: 25,
   },
   {
-    _id: "3",
     name: "Macbook Air M1",
     image: "/images/airpods.jpg",
     description:
@@ -42,7 +39,6 @@ const products = [
     numReviews: 3,
   },
   {
-    _id: "4",
     name: "Macbook M1 Pro",
     image: "/images/airpods.jpg",
     description:
@@ -56,7 +52,6 @@ const products = [
     numReviews: 15,
   },
   {
-    _id: "5",
     name: "Macbook Pro M1 Pro Max",
     image: "/images/airpods.jpg",
     description:
@@ -70,7 +65,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: "6",
     name: "Macbook Air M2",
     image: "/images/airpods.jpg",
     description:

@@ -3,7 +3,9 @@ import chalk from "chalk";
 
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect(process.env.MONGO_URI);
+    const conn = await mongoose.connect(process.env.MONGO_URI, {
+      dbName: "proshop",
+    });
     console.log(chalk.blueBright(`MongoDB Connected: ${conn.connection.host}`));
   } catch (error) {
     console.error(chalk.red.bold.underline(`Error: ${error.message}`));
