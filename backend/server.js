@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import chalk from "chalk";
 import { find, propEq, isNil } from "ramda";
 
 import mockedProducts from "./data/products.js";
@@ -32,5 +33,9 @@ app.get("/products/:id", ({ params }, res) => {
 
 const PORT = process.env.PORT || 4200;
 app.listen(PORT, () => {
-  console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
+  console.log(
+    chalk.yellow(
+      `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`
+    )
+  );
 });
