@@ -3,8 +3,10 @@ import dotenv from "dotenv";
 import { find, propEq, isNil } from "ramda";
 
 import mockedProducts from "./data/products.js";
+import connectDB from "./config/db.js";
 
 dotenv.config();
+connectDB();
 
 const app = express();
 
