@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { Row, Col } from "react-bootstrap";
-import axios from "axios";
 
 import { selectProducts, setProduct } from "features/product/productSlice";
-
-import { ProductCard } from "../components/ProductCard";
+import { ProductCard } from "components/ProductCard";
+import { Loader } from "components/Loader";
+import { Message } from "components/Message";
 
 export const HomeScreen: React.FC = () => {
   const dispatch = useDispatch();
   const products = useSelector(selectProducts);
 
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const getProducts = async () => {
     setIsLoading(true);
@@ -20,6 +22,7 @@ export const HomeScreen: React.FC = () => {
       const { data } = await axios.get("/products");
       dispatch(setProduct(data));
     } catch (error) {
+      setError(true);
       console.error(error);
     }
 
@@ -34,7 +37,9 @@ export const HomeScreen: React.FC = () => {
     <>
       <h1>Lasted Products</h1>
       {isLoading ? (
-        <h1>Loading</h1>
+        <Loader />
+      ) : error ? (
+        <Message variant="danger">Something when wrong</Message>
       ) : (
         <Row>
           {products.map((product) => {
