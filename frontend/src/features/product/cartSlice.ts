@@ -6,9 +6,13 @@ export type CartState = {
   cart: Cart;
 };
 
+const cartItemFromStorage = JSON.parse(
+  localStorage.getItem("cartItems") ?? "[]"
+);
+
 const initialState: CartState = {
   cart: {
-    cartItems: [],
+    cartItems: cartItemFromStorage,
   },
 };
 
@@ -28,7 +32,7 @@ const cartSlice = createSlice({
           state.cart.cartItems[itemIndex].quantity + action.payload.quantity;
       }
 
-      localStorage.setItem("cart", JSON.stringify(state.cart));
+      localStorage.setItem("cartItems", JSON.stringify(state.cart.cartItems));
     },
   },
 });
