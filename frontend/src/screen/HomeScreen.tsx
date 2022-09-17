@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { Row, Col } from "react-bootstrap";
@@ -15,7 +15,7 @@ export const HomeScreen: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  const getProducts = async () => {
+  const getProducts = useCallback(async () => {
     setIsLoading(true);
 
     try {
@@ -27,7 +27,7 @@ export const HomeScreen: React.FC = () => {
     }
 
     setIsLoading(false);
-  };
+  }, [dispatch]);
 
   useEffect(() => {
     getProducts();
