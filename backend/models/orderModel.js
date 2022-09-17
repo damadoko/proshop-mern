@@ -1,11 +1,13 @@
 import mongoose from "mongoose";
 
+import { mongooseSchema } from "../lib/constants.js";
+
 const orderSchema = mongoose.Schema(
   {
     user: {
       type: mongoose.Schema.Types.ObjectId,
       require: true,
-      ref: "User",
+      ref: mongooseSchema.USER,
     },
     orderItems: [
       {
@@ -16,7 +18,7 @@ const orderSchema = mongoose.Schema(
         product: {
           type: mongoose.Schema.Types.ObjectId,
           require: true,
-          ref: "Product",
+          ref: mongooseSchema.PRODUCT,
         },
       },
     ],
@@ -73,6 +75,6 @@ const orderSchema = mongoose.Schema(
   }
 );
 
-const Order = mongoose.model("Order", orderSchema);
+const Order = mongoose.model(mongooseSchema.ORDER, orderSchema);
 
 export default Order;

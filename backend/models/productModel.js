@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 
+import { mongooseSchema } from "../lib/constants.js";
+
 const reviewSchema = mongoose.Schema(
   {
     name: {
@@ -23,7 +25,7 @@ const productSchema = mongoose.Schema(
     user: {
       type: mongoose.Schema.Types.ObjectId,
       require: true,
-      ref: "User",
+      ref: mongooseSchema.USER,
     },
     name: {
       type: String,
@@ -72,6 +74,6 @@ const productSchema = mongoose.Schema(
   }
 );
 
-const Product = mongoose.model("Product", productSchema);
+const Product = mongoose.model(mongooseSchema.PRODUCT, productSchema);
 
 export default Product;

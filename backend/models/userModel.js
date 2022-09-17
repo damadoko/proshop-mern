@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 
+import { mongooseSchema } from "../lib/constants.js";
+
 const userSchema = mongoose.Schema(
   {
     name: {
@@ -26,6 +28,6 @@ const userSchema = mongoose.Schema(
   }
 );
 
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model(mongooseSchema.USER, userSchema);
 
 export default User;
