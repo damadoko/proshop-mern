@@ -10,3 +10,7 @@ export type Product = {
   rating: number;
   numReviews: number;
 };
+
+export type ProductInCart = Product & {
+  quantity: number;
+};

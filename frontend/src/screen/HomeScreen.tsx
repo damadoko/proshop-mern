@@ -31,7 +31,7 @@ export const HomeScreen: React.FC = () => {
 
   useEffect(() => {
     getProducts();
-  }, []);
+  }, [getProducts]);
 
   return (
     <>

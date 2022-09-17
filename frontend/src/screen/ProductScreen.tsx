@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import {
@@ -16,9 +16,11 @@ import { isNil } from "lodash";
 import { Product } from "types/product";
 import { Rating } from "components/Rating";
 import { selectProducts } from "features/product/productSlice";
+import { addToCart } from "features/product/cartSlice";
 
 export const ProductScreen: React.FC = () => {
   const { id } = useParams();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const products = useSelector(selectProducts);
 
@@ -37,7 +39,7 @@ export const ProductScreen: React.FC = () => {
     if (!isNil(storedProduct)) return setProduct(storedProduct);
 
     getProductById(id);
-  }, [id]);
+  }, [id, products]);
 
   const handleSelectQuantity = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedQuantity = e.target.value;
@@ -46,6 +48,8 @@ export const ProductScreen: React.FC = () => {
   };
 
   const handleAddToCart = () => {
+    if (!product) return;
+    dispatch(addToCart({ ...product, quantity }));
     navigate(`/cart/${id}?qty=${quantity}`);
   };
 
