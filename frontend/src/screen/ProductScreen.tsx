@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { Row, Col, Image, ListGroup, Card, Button } from "react-bootstrap";
+import { isNil } from "lodash";
 
 import { Product } from "types/product";
 import { Rating } from "components/Rating";
+import { selectProducts } from "features/product/productSlice";
 
 export const ProductScreen: React.FC = () => {
   const { id } = useParams();
+  const products = useSelector(selectProducts);
 
   const [product, setProduct] = useState<Product | null>(null);
 
@@ -18,10 +22,12 @@ export const ProductScreen: React.FC = () => {
 
   useEffect(() => {
     if (!id) return;
+
+    const storedProduct = products.find(({ _id }) => _id === id);
+    if (!isNil(storedProduct)) return setProduct(storedProduct);
+
     getProductById(id);
   }, [id]);
-
-  // const product = find<Product>(propEq("_id", id))(products);
 
   return (
     <>
