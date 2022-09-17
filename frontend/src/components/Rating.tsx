@@ -1,6 +1,16 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 
-export const Rating = ({ value, text, color = "#f8e825" }) => {
+export type RatingProps = {
+  value: number;
+  text: string;
+  color?: CSSProperties["color"];
+};
+
+export const Rating: React.FC<RatingProps> = ({
+  value,
+  text,
+  color = "#f8e825",
+}) => {
   return (
     <div className="rating">
       {Array.from(Array(5)).map((_, index) => {
