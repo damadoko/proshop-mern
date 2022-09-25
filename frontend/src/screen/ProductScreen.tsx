@@ -48,9 +48,9 @@ export const ProductScreen: React.FC = () => {
   };
 
   const handleAddToCart = () => {
-    if (!product) return;
+    if (!product || !quantity) return;
     dispatch(addToCart({ ...product, quantity }));
-    navigate(`/cart/${id}?qty=${quantity}`);
+    navigate(`/cart`);
   };
 
   return (

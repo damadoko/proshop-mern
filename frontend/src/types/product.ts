@@ -5,7 +5,7 @@ export type Product = {
   description: string;
   brand: string;
   category: string;
-  price: string;
+  price: number;
   countInStock: number;
   rating: number;
   numReviews: number;
