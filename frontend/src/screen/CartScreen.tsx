@@ -13,6 +13,7 @@ import { Message } from "components/Message";
 import {
   updateItemQuantityInCart,
   selectCartState,
+  removeItemInCart,
 } from "features/product/cartSlice";
 import { useAppDispatch, useAppSelector } from "store";
 
@@ -23,7 +24,7 @@ export const CartScreen: React.FC = () => {
   const dispatch = useAppDispatch();
 
   const removeFromCart = (id: string) => {
-    console.log(id);
+    dispatch(removeItemInCart(id));
   };
 
   const subTotal = cartItems.reduce((acc, cur) => acc + cur.quantity, 0);
