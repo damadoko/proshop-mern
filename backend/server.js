@@ -7,6 +7,7 @@ import productRoutes from "./routes/productRoutes.js";
 import { notFoundHandler, errorHandler } from "./middleware/errorMiddleware.js";
 
 dotenv.config();
+
 connectDB();
 
 const app = express();
